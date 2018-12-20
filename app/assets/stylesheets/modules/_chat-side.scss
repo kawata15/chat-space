@@ -2,11 +2,11 @@
   width: 300px;
   height: 100vh;
   color: $white;
-  .chat-side__user{
+  &__user{
     background: #253141;
     height: 15%;
     width: 100%;
-    .chat-side__user-content{
+    &-content{
       box-sizing: border-box;
       height: 50px;
       width: 100%;
@@ -25,17 +25,17 @@
       }
     }
   }
-  .chat-side__groups{
+  &__groups{
     background: #2F3e51;
     height: calc(100vh - 15%);
     padding: 0 20px;
     .chat-side__group{
       box-sizing: border-box;
       padding: 20px 0 40px;
-      .group__name{
+      &__name{
         font-size: $side-name;
       }
-      .group__latest-message{
+      &__latest-message{
         font-size: $side-message;
         margin-top: 5px;
       }
