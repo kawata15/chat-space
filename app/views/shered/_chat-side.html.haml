@@ -1,0 +1,19 @@
+.chat-side
+  .chat-side__user
+    .chat-side__user-content
+      .user-name ユーザー名
+      %ul.chat-side-icon
+        %li.icon
+          = link_to do
+            %i.fa.fa-cog{"aria-hidden" => "true"}
+        %li.icon
+          = link_to do
+            %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+  .chat-side__groups
+    .chat-side__groups-list
+      .chat-side__group
+        .group__name グループ名
+        .group__latest-message 最新のメッセージ
+      .chat-side__group
+        .group__name グループ名2
+        .group__latest-message 最新のメッセージ2
