@@ -16,12 +16,15 @@
     .chat-main__body
       .chat-main__body-message-list
         .chat-main__message
-          .chat-main__message-name
-            マック松村
-          .chat-main__message-time
-            2018/12/19/19:14
-          .chat-main__message-body
-            お腹すいた。。。かな？
+          / .chat-main__message-name
+          /   = message.user.name
+          / .chat-main__message-time
+          /   = format_posted_time(message.created_at)
+          / .chat-main__message-body
+          /   - if message.content.present?
+          /     %p.chat-main__message-body
+          /       = message.content
+          /   = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 
         .chat-main__message
           .chat-main__message-name
@@ -32,7 +35,7 @@
             逆にお腹いっぱい
 
     .chat-main__footer
-      %form.new-message
+      .form.new-message
         /%input.text-new{placeholder: "type a message"}
         = form_for [@group, @message] do |f|
           = f.text_field :content, class: 'text-new', placeholder: 'type a message'
