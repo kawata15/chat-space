@@ -33,8 +33,13 @@
 
     .chat-main__footer
       %form.new-message
-        %input.text-new{placeholder: "type a message"}
-          %label.upload-label{for: "upload-icon"}
-            %i.fa.fa-picture-o
-            %input.hidden{type: "file", id: "upload-icon"}
-        %input.submit{type: "submit", value: "Send"}
+        /%input.text-new{placeholder: "type a message"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'text-new', placeholder: 'type a message'
+          / %label.upload-label{for: "upload-icon"}
+          /   %i.fa.fa-picture-o
+          /   %input.hidden{type: "file", id: "upload-icon"}
+          = f.label :image, class: 'upload-label' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'submit'
