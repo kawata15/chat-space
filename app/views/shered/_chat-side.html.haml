@@ -5,20 +5,17 @@
         = current_user.name
       %ul.chat-side-icon
         %li.icon
-          = link_to do
+          = link_to new_group_path do
             %i.fa.fa-cog{"aria-hidden" => "true"}
         %li.icon
           = link_to edit_user_path(current_user) do
             %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
   .chat-side__groups
     .chat-side__groups-list
-      .chat-side__group
-        .chat-side__group__name
-          グループ名
-        .chat-side__group__latest-message
-          最新のメッセージ
-      .chat-side__group
-        .chat-side__group__name
-          グループ名2
-        .chat-side__group__latest-message
-          最新のメッセージ2
+      - current_user.groups.each do |group|
+        .chat-side__group
+          = link_to group_messages_path(group) do
+            .chat-side__group__name
+              = group.name
+            .chat-side__group__latest-message
+              最新のメッセージ

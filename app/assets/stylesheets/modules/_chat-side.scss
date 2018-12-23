@@ -30,12 +30,15 @@
     height: calc(100vh - 15%);
     padding: 0 20px;
     .chat-side__group{
+      text-decoration: none;
       box-sizing: border-box;
       padding: 20px 0 40px;
       &__name{
+        color: $white;
         font-size: $side-name;
       }
       &__latest-message{
+        color: $white;
         font-size: $side-message;
         margin-top: 5px;
       }

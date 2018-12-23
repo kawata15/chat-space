@@ -4,8 +4,11 @@
   .chat-main
     .chat-main__header
       .chat-main__header-group
-        .chat-main__header-group-name グループ名
-        .chat-main__header-group-edit-btm edit
+        .chat-main__header-group-name
+          グループ名
+        .chat-main__header-group-edit-btm
+          edit
+          /= link_to "Edit", edit_group_path(@group)      未解決
       %ul.chat-main__header-members
         MEMBER :
         %li.member マック松村
