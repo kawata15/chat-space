@@ -7,32 +7,14 @@
         .chat-main__header-group-name
           グループ名
         .chat-main__header-group-edit-btm
-          edit
-          /= link_to "Edit", edit_group_path(@group)      未解決
+          = link_to "edit", edit_group_path(@group)
       %ul.chat-main__header-members
         MEMBER :
         %li.member マック松村
         %li.member ボンジュール上田
     .chat-main__body
       .chat-main__body-message-list
-        .chat-main__message
-          / .chat-main__message-name
-          /   = message.user.name
-          / .chat-main__message-time
-          /   = format_posted_time(message.created_at)
-          / .chat-main__message-body
-          /   - if message.content.present?
-          /     %p.chat-main__message-body
-          /       = message.content
-          /   = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
-
-        .chat-main__message
-          .chat-main__message-name
-            ボンジュール上田
-          .chat-main__message-time
-            2018/12/19/20:14
-          .chat-main__message-body
-            逆にお腹いっぱい
+        = render @messages
 
     .chat-main__footer
       .form.new-message
