@@ -10,8 +10,8 @@
           = link_to "edit", edit_group_path(@group)
       %ul.chat-main__header-members
         MEMBER :
-        %li.member マック松村
-        %li.member ボンジュール上田
+        %li.member
+          = @group.users.pluck(:name).join(" ")
     .chat-main__body
       .chat-main__body-message-list
         = render @messages
