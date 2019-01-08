@@ -35,8 +35,9 @@ $( "document" ).on(function(){
     })
      .done(function(data){
        var html = buildHTML(data);
-       $('.chat-main__body-message-list').append(html);
-       $('.chat-main__body-message-list').animate({scrollTop: $('.chat-main__body-message-list')[0].scrollHeight}, 'fast');
+       var messageList = $('.chat-main__body-message-list')
+       messageList.append(html);
+       messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
        $('#new_form')[0].reset();
      })
      .fail(function(){
