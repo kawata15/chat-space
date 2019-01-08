@@ -32,6 +32,7 @@
     box-sizing: border-box;
     padding: 26px 40px 0;
     background: rgba(170, 170, 170, 0.1);
+    overflow: scroll;
     .chat-main__message{
       padding: 20px 0;
       display: block;

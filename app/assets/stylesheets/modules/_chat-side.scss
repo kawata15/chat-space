@@ -29,6 +29,7 @@
     background: #2F3e51;
     height: calc(100vh - 15%);
     padding: 0 20px;
+    overflow: scroll;
     .chat-side__group{
       text-decoration: none;
       box-sizing: border-box;
