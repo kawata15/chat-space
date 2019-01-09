@@ -5,7 +5,7 @@
     .chat-main__header
       .chat-main__header-group
         .chat-main__header-group-name
-          グループ名
+          = @group.name
         .chat-main__header-group-edit-btm
           = link_to "edit", edit_group_path(@group)
       %ul.chat-main__header-members
