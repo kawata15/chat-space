@@ -47,7 +47,17 @@ $(function(){
 
 // 自動更新
   setInterval(function() {
-      console.log("aaa")
-   } , 5000 );
+    console.log("aaa")
+    $.ajax({
+      url: location.href.json,
+      type: "GET"
+      dataType: 'json'
+    })
+    .done(function(data){
+    })
+    .fail(function(){
+      alert('自動更新に失敗しました')
+    })
+  } , 5000 );
 
 });
