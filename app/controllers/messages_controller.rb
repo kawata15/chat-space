@@ -6,14 +6,15 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user)
     respond_to do |format|
       format.html
-      format.json{@new_messages = @messages.where('id > ?', params[:id])}
+      format.json
     end
   end
 
   def create
     @message = @group.messages.new(message_params)
+    @message.user = current_user
     if @message.save
-      redirect_to do |format|
+      respond_to do |format|
         format.html { redirect_to group_messages_path(@group), notice: 'メッセージが送信されました' }
         format.json
       end
@@ -33,5 +34,4 @@ class MessagesController < ApplicationController
   def set_group
     @group = Group.find(params[:group_id])
   end
-
 end
