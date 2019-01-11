@@ -49,11 +49,17 @@ $(function(){
   setInterval(function() {
     console.log("aaa")
     $.ajax({
-      url: location.href.json,
-      type: "GET"
+      url: location.href,
       dataType: 'json'
     })
     .done(function(data){
+      var insertHTML = '';
+      data.forEach(function(message){
+        insertHTML += buildHTML(message);
+      })
+      var messageList = $('.chat-main__body')
+       messageList.append(insertHTML);
+       messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('自動更新に失敗しました')
