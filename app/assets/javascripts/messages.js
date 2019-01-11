@@ -33,7 +33,7 @@ $(function(){
     })
      .done(function(data){
        var html = buildHTML(data);
-       var messageList = $('.chat-main__body-message-list')
+       var messageList = $('.chat-main__body')
        messageList.append(html);
        messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
        $('#new_message')[0].reset();
@@ -46,8 +46,8 @@ $(function(){
 
 
 // 自動更新
-//   setInterval(function() {
-//       console.log("aaa")
-//    } , 5000 );
+  setInterval(function() {
+      console.log("aaa")
+   } , 5000 );
 
 });
