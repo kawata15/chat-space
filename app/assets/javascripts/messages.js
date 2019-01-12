@@ -43,27 +43,34 @@ $(function(){
     })
     return false;
   });
-
-
 // 自動更新
-  setInterval(function() {
-    console.log("aaa")
-    $.ajax({
-      url: location.href,
-      dataType: 'json'
-    })
-    .done(function(data){
-      var insertHTML = '';
-      data.forEach(function(message){
-        insertHTML += buildHTML(message);
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      if ($('.chat-main__message')[0]) {
+        var message_id = $('.chat-main__message').last().data('messageId') || 0;
+      } else {
+        var messageId = 0;
+      }
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: { id: message_id },
+        dataType: 'json'
       })
-      var messageList = $('.chat-main__body')
-       messageList.append(insertHTML);
-       messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
-    })
-    .fail(function(){
-      alert('自動更新に失敗しました')
-    })
-  } , 5000 );
+      .done(function(data) {
+        var insertHTML = '';
+        data.forEach(function(message) {
+          insertHTML += buildHTML(message);
+        });
+        var messageList = $('.chat-main__body')
+        messageList.append(insertHTML);
+        messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
+      })
 
+      .fail(function(data) {
+        alert('自動更新に失敗しました');
+      });
+    } else {
+      clearInterval(interval);
+  }}, 5000 );
 });
