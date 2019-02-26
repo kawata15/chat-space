@@ -20,5 +20,6 @@
         = form_for [@group, @message], id: 'new_message' do |f|
           = f.text_field :content, class: 'text-new', placeholder: 'type a message'
           = f.label :image, class: 'upload-label' do
-            = f.file_field :image, class: 'hidden'
+            %i.fa.fa-picture-o
+              = f.file_field :image, class: 'hidden'
           = f.submit 'Send', class: 'submit'
